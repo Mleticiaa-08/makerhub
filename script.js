@@ -11,6 +11,7 @@ const textarea = document.querySelector(".generator textarea");
 const counter = document.getElementById("charCount");
 const examples = document.querySelectorAll(".examples div");
 
+const navLogin = document.getElementById("navLogin");
 const navLoginText = document.getElementById("navLoginText");
 const navCreateSite = document.getElementById("navCreateSite");
 const navPlans = document.getElementById("navPlans");
@@ -60,6 +61,16 @@ function handlePlans() {
   loginModal.classList.remove("hidden");
 }
 
+function handleProfile() {
+  if (isLoggedIn) {
+    window.location.href = "pages/perfil.html";
+    return;
+  }
+
+  redirectToPlans = false;
+  loginModal.classList.remove("hidden");
+}
+
 btn.addEventListener("click", handleCreateSite);
 
 navCreateSite.addEventListener("click", (e) => {
@@ -75,6 +86,11 @@ heroPlansBtn.addEventListener("click", (e) => {
 navPlans.addEventListener("click", (e) => {
   e.preventDefault();
   handlePlans();
+});
+
+navLogin.addEventListener("click", (e) => {
+  e.preventDefault();
+  handleProfile();
 });
 
 switchMode.addEventListener("click", (e) => {
