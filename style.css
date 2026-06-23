@@ -402,75 +402,11 @@ nav a {
   display: none;
 }
 
-.plans-section {
-  min-height: 100vh;
-  background: #eef0f3;
-  display: flex;
-  justify-content: center;
+#heroPlansBtn {
+  display: inline-flex;
   align-items: center;
-  padding: 80px 20px;
-}
-
-.plans-box {
-  background: #f8f8f8;
-  padding: 35px;
-  border-radius: 15px;
-  width: 900px;
-  max-width: 100%;
-  border: 1px solid #ddd;
-}
-
-.plans-box h2 {
-  text-align: center;
-  margin-bottom: 35px;
-  color: #505ba6;
-  font-family: var(--font-title);
-}
-
-.plans-grid {
-  display: flex;
   justify-content: center;
-  gap: 20px;
-}
-
-.plan-card {
-  width: 180px;
-  background: white;
-  border: 1px solid #dcdcdc;
-  border-radius: 12px;
-  overflow: hidden;
-  text-align: center;
-  position: relative;
-}
-
-.plan-card p {
-  padding: 20px;
-  font-family: var(--font-text);
-}
-
-.plan-icon {
-  padding: 15px;
-}
-
-.plan-icon img {
-  width: 30px;
-}
-
-.price {
-  background: #d7edf9;
-  padding: 14px;
-  font-weight: bold;
-}
-
-.badge {
-  position: absolute;
-  top: 8px;
-  right: 8px;
-  background: #505ba6;
-  color: white;
-  font-size: 10px;
-  padding: 4px 8px;
-  border-radius: 20px;
+  text-decoration: none;
 }
 
 @media (max-width: 768px) {

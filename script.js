@@ -14,32 +14,33 @@ const examples = document.querySelectorAll(".examples div");
 const navLoginText = document.getElementById("navLoginText");
 const navCreateSite = document.getElementById("navCreateSite");
 const navPlans = document.getElementById("navPlans");
-
 const heroPlansBtn = document.getElementById("heroPlansBtn");
-const plansSection = document.getElementById("plansSection");
 
 const modalTitle = document.getElementById("modalTitle");
 const passwordGroup = document.getElementById("passwordGroup");
 const switchMode = document.getElementById("switchMode");
 const footerText = document.getElementById("footerText");
 
-let isLoggedIn = false;
 let loginMode = "register";
+let redirectToPlans = false;
+
+let isLoggedIn = localStorage.getItem("isLoggedIn") === "true";
+
+if (isLoggedIn) {
+  navLoginText.textContent = "Perfil";
+}
 
 function unlockGenerator() {
-
   navCreateSite.style.display = "none";
-
   navPlans.classList.remove("hidden");
-
   buttons.style.display = "none";
   rating.style.display = "none";
-
   generator.classList.remove("hidden");
   examplesBox.classList.remove("hidden");
 }
 
 function handleCreateSite() {
+  redirectToPlans = false;
 
   if (isLoggedIn) {
     unlockGenerator();
@@ -49,11 +50,14 @@ function handleCreateSite() {
   loginModal.classList.remove("hidden");
 }
 
-function goToPlans() {
+function handlePlans() {
+  if (isLoggedIn) {
+    window.location.href = "pages/plano.html";
+    return;
+  }
 
-  plansSection.scrollIntoView({
-    behavior: "smooth"
-  });
+  redirectToPlans = true;
+  loginModal.classList.remove("hidden");
 }
 
 btn.addEventListener("click", handleCreateSite);
@@ -63,62 +67,56 @@ navCreateSite.addEventListener("click", (e) => {
   handleCreateSite();
 });
 
-if (heroPlansBtn) {
-  heroPlansBtn.addEventListener("click", goToPlans);
-}
+heroPlansBtn.addEventListener("click", (e) => {
+  e.preventDefault();
+  handlePlans();
+});
 
 navPlans.addEventListener("click", (e) => {
   e.preventDefault();
-  goToPlans();
+  handlePlans();
 });
 
 switchMode.addEventListener("click", (e) => {
-
   e.preventDefault();
 
   if (loginMode === "register") {
-
     loginMode = "login";
 
     modalTitle.textContent = "Bem-vindo ao Maker Hub";
-
     passwordGroup.style.display = "none";
-
     finishLogin.textContent = "Cadastre-se";
-
     footerText.textContent = "Não possui conta?";
-
     switchMode.textContent = "Cadastre-se";
 
   } else {
-
     loginMode = "register";
 
     modalTitle.textContent = "Crie sua conta";
-
     passwordGroup.style.display = "block";
-
     finishLogin.textContent = "Concluir cadastro";
-
     footerText.textContent = "Já tem uma conta?";
-
     switchMode.textContent = "Entrar";
   }
 });
 
 finishLogin.addEventListener("click", () => {
-
   isLoggedIn = true;
 
-  loginModal.classList.add("hidden");
+  localStorage.setItem("isLoggedIn", "true");
 
+  loginModal.classList.add("hidden");
   navLoginText.textContent = "Perfil";
+
+  if (redirectToPlans) {
+    window.location.href = "pages/plano.html";
+    return;
+  }
 
   unlockGenerator();
 });
 
 textarea.addEventListener("input", () => {
-
   let length = textarea.value.length;
 
   if (length > 500) {
@@ -130,16 +128,12 @@ textarea.addEventListener("input", () => {
 });
 
 examples.forEach(example => {
-
   example.addEventListener("click", () => {
-
     textarea.value = example.textContent;
 
     let length = textarea.value.length;
-
     counter.textContent = `${length} / 500 caracteres`;
 
     textarea.focus();
   });
-
 });
