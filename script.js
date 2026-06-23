@@ -22,7 +22,6 @@ const passwordGroup = document.getElementById("passwordGroup");
 const switchMode = document.getElementById("switchMode");
 const footerText = document.getElementById("footerText");
 
-/* NOVO */
 const navAbout = document.getElementById("navAbout");
 const footerSection = document.getElementById("footerSection");
 
@@ -75,63 +74,60 @@ function handleProfile() {
   loginModal.classList.remove("hidden");
 }
 
-btn.addEventListener("click", handleCreateSite);
+btn?.addEventListener("click", handleCreateSite);
 
-navCreateSite.addEventListener("click", (e) => {
+navCreateSite?.addEventListener("click", (e) => {
   e.preventDefault();
   handleCreateSite();
 });
 
-heroPlansBtn.addEventListener("click", (e) => {
+heroPlansBtn?.addEventListener("click", (e) => {
   e.preventDefault();
   handlePlans();
 });
 
-navPlans.addEventListener("click", (e) => {
+navPlans?.addEventListener("click", (e) => {
   e.preventDefault();
   handlePlans();
 });
 
-navLogin.addEventListener("click", (e) => {
+navLogin?.addEventListener("click", (e) => {
   e.preventDefault();
   handleProfile();
 });
 
-/* NOVO */
-navAbout.addEventListener("click", (e) => {
+navAbout?.addEventListener("click", (e) => {
   e.preventDefault();
+  footerSection.scrollIntoView({ behavior: "smooth" });
+});
 
-  footerSection.scrollIntoView({
-    behavior: "smooth"
+if (switchMode) {
+  switchMode.addEventListener("click", (e) => {
+    e.preventDefault();
+
+    if (loginMode === "register") {
+      loginMode = "login";
+
+      modalTitle.textContent = "Bem-vindo ao Maker Hub";
+      passwordGroup.style.display = "none";
+      finishLogin.textContent = "Entrar";
+      footerText.textContent = "Não possui conta?";
+      switchMode.textContent = "Cadastre-se";
+
+    } else {
+      loginMode = "register";
+
+      modalTitle.textContent = "Crie sua conta";
+      passwordGroup.style.display = "block";
+      finishLogin.textContent = "Concluir cadastro";
+      footerText.textContent = "Já tem uma conta?";
+      switchMode.textContent = "Entrar";
+    }
   });
-});
-
-switchMode.addEventListener("click", (e) => {
-  e.preventDefault();
-
-  if (loginMode === "register") {
-    loginMode = "login";
-
-    modalTitle.textContent = "Bem-vindo ao Maker Hub";
-    passwordGroup.style.display = "none";
-    finishLogin.textContent = "Cadastre-se";
-    footerText.textContent = "Não possui conta?";
-    switchMode.textContent = "Cadastre-se";
-
-  } else {
-    loginMode = "register";
-
-    modalTitle.textContent = "Crie sua conta";
-    passwordGroup.style.display = "block";
-    finishLogin.textContent = "Concluir cadastro";
-    footerText.textContent = "Já tem uma conta?";
-    switchMode.textContent = "Entrar";
-  }
-});
+}
 
 finishLogin.addEventListener("click", () => {
   isLoggedIn = true;
-
   localStorage.setItem("isLoggedIn", "true");
 
   loginModal.classList.add("hidden");
@@ -145,7 +141,7 @@ finishLogin.addEventListener("click", () => {
   unlockGenerator();
 });
 
-textarea.addEventListener("input", () => {
+textarea?.addEventListener("input", () => {
   let length = textarea.value.length;
 
   if (length > 500) {
@@ -160,9 +156,7 @@ examples.forEach(example => {
   example.addEventListener("click", () => {
     textarea.value = example.textContent;
 
-    let length = textarea.value.length;
-    counter.textContent = `${length} / 500 caracteres`;
-
+    counter.textContent = `${textarea.value.length} / 500 caracteres`;
     textarea.focus();
   });
 });
