@@ -17,7 +17,6 @@
     font-family:var(--font-text);
   }
   
-  /* NAVBAR */
   
   .navbar{
     height:80px;
@@ -71,15 +70,11 @@
     width:16px;
   }
   
-  /* PAGE */
-  
   .projects-page{
     width:1100px;
     margin:50px auto;
   }
-  
-  /* TOP */
-  
+
   .top-area{
     display:flex;
     justify-content:space-between;
@@ -100,8 +95,6 @@
     cursor:pointer;
     font-size:18px;
   }
-  
-  /* GRID */
   
   .projects-grid{
     margin-top:40px;
@@ -158,8 +151,6 @@
     color:#9ca3af;
     font-size:14px;
   }
-  
-  /* NEW PROJECT */
   
   .new-project{
     height:320px;

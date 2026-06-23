@@ -122,15 +122,39 @@ nav a {
   color: white;
 }
 
-.btn-outline {
-  background: transparent;
-  color: white;
-  border: 1px solid white;
+.btn {
+  background: var(--primary);
+  padding: 8px 16px;
+  border-radius: 8px;
+  border: 1px solid var(--primary);
+
+  transition: 0.3s;
 }
 
-.btn-outline:hover {
-  background: white;
-  color: var(--primary);
+.btn:hover {
+  background: #3f4890;
+}
+
+#navPlans,
+#heroPlansBtn {
+  background: transparent;
+  padding: 8px 16px;
+  border-radius: 8px;
+  border: 1px solid white;
+  color: white;
+
+  transition: 0.3s;
+  text-decoration: none;
+}
+
+#navPlans:hover,
+#heroPlansBtn:hover {
+  background: rgba(255,255,255,0.15);
+}
+
+.btn-outline {
+  background: transparent;
+  border: 1px solid white;
 }
 
 .rating {
@@ -408,6 +432,7 @@ nav a {
   justify-content: center;
   text-decoration: none;
 }
+
 @media (max-width: 768px) {
 
   body {
