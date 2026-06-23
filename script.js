@@ -22,6 +22,10 @@ const passwordGroup = document.getElementById("passwordGroup");
 const switchMode = document.getElementById("switchMode");
 const footerText = document.getElementById("footerText");
 
+/* NOVO */
+const navAbout = document.getElementById("navAbout");
+const footerSection = document.getElementById("footerSection");
+
 let loginMode = "register";
 let redirectToPlans = false;
 
@@ -91,6 +95,15 @@ navPlans.addEventListener("click", (e) => {
 navLogin.addEventListener("click", (e) => {
   e.preventDefault();
   handleProfile();
+});
+
+/* NOVO */
+navAbout.addEventListener("click", (e) => {
+  e.preventDefault();
+
+  footerSection.scrollIntoView({
+    behavior: "smooth"
+  });
 });
 
 switchMode.addEventListener("click", (e) => {
