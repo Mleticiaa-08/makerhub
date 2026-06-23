@@ -5,7 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Maker Hub</title>
 
-  <!-- FONTS -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
@@ -18,28 +17,39 @@
 
 <body>
 
-  <!-- NAVBAR -->
   <header class="navbar">
     <div class="logo">
       <img src="images/logo.png" alt="Logo">
     </div>
 
     <nav>
-      <a href="#" class="btn">Criar Site</a>
-      <a href="#">Sobre Nós</a>
-      <a href="#" class="login">
-        <img src="images/User.png" alt="user">
-        Login
+
+      <a href="#" class="btn" id="navCreateSite">
+        Criar Site
       </a>
+
+      <a href="#" class="btn hidden" id="navPlans">
+        Ver Planos
+      </a>
+
+      <a href="#">
+        Sobre Nós
+      </a>
+
+      <a href="#" class="login" id="navLogin">
+        <img src="images/User.png" alt="user">
+        <span id="navLoginText">Login</span>
+      </a>
+
     </nav>
   </header>
 
-  <!-- HERO -->
   <section class="hero">
     <div class="overlay"></div>
 
     <div class="content">
-      <h1>COMECE<br>AGORA</h1>
+
+      <h1>COMECE AGORA</h1>
 
       <p>
         conte-nos sobre sua empresa e como ela deve funcionar para que a nossa IA comece a trabalhar
@@ -47,10 +57,9 @@
 
       <div class="hero-buttons">
         <button id="ctaBtn">Criar site</button>
-        <button class="btn-outline">Ver Planos</button>
+        <button class="btn-outline" id="heroPlansBtn"> Ver Planos  </button>
       </div>
 
-      <!-- ⭐ AGORA NO LUGAR CERTO -->
       <div class="rating">
         <img src="images/Star.png" alt="">
         <img src="images/Star.png" alt="">
@@ -59,10 +68,126 @@
         <img src="images/Star.png" alt="">
         <span>5.0 (avaliação)</span>
       </div>
+
+      <div class="generator hidden" id="generatorBox">
+
+        <textarea placeholder="quero um site sobre..."></textarea>
+
+        <div class="generator-footer">
+          <span id="charCount">0 / 500 caracteres</span>
+          <button class="generate-btn">Gerar site</button>
+        </div>
+
+      </div>
+
+      <div class="examples-container hidden" id="examplesBox">
+
+        <p class="examples-title">EXEMPLOS</p>
+
+        <div class="examples">
+          <div>Uma clínica odontológica moderna com agendamento online</div>
+          <div>Loja de roupas femininas com catálogo e carrinho</div>
+          <div>Portfólio para fotógrafo freelance com galeria</div>
+          <div>Academia de ginástica com planos e depoimentos</div>
+        </div>
+
+      </div>
+
     </div>
   </section>
 
-  <!-- FOOTER -->
+  <div class="login-modal hidden" id="loginModal">
+    <div class="login-box">
+
+      <h2 id="modalTitle">Crie sua conta</h2>
+
+      <button class="social-btn">
+        <img src="images/google.png" alt="Google">
+        Entrar com Google
+      </button>
+
+      <button class="social-btn">
+        <img src="images/apple.png" alt="Apple">
+        Entrar com Apple
+      </button>
+
+      <div class="divider">
+        <span></span>
+        <p>ou</p>
+        <span></span>
+      </div>
+
+      <label>E-mail</label>
+      <input type="email" placeholder="Digite seu endereço de e-mail">
+
+      <div id="passwordGroup">
+        <label>Senha</label>
+        <input type="password" placeholder="Digite sua senha">
+      </div>
+
+      <button id="finishLogin">Concluir cadastro</button>
+
+      <div class="login-footer">
+        <span id="footerText">Já tem uma conta?</span>
+        <a href="#" id="switchMode">Entrar</a>
+      </div>
+
+    </div>
+  </div>
+
+<section class="plans-section" id="plansSection">
+
+  <div class="plans-box">
+
+    <h2>Planos</h2>
+
+    <div class="plans-grid">
+
+      <div class="plan-card">
+        <p>15 Tokens</p>
+
+        <div class="plan-icon">
+          <img src="images/user-plan.png" alt="">
+        </div>
+
+        <div class="price">
+          R$ 75,00
+        </div>
+      </div>
+
+      <div class="plan-card">
+        <p>30 Tokens</p>
+
+        <div class="plan-icon">
+          <img src="images/users-plan.png" alt="">
+        </div>
+
+        <div class="price">
+          R$ 150,00
+        </div>
+      </div>
+
+      <div class="plan-card popular">
+
+        <span class="badge">POPULAR</span>
+
+        <p>50 Tokens</p>
+
+        <div class="plan-icon">
+          <img src="images/group-plan.png" alt="">
+        </div>
+
+        <div class="price">
+          R$ 250,00
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
   <footer class="footer">
     <div class="footer-container">
 
@@ -90,5 +215,6 @@
   </footer>
 
   <script src="script.js"></script>
+
 </body>
 </html>
