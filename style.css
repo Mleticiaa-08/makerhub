@@ -408,18 +408,154 @@ nav a {
   justify-content: center;
   text-decoration: none;
 }
-
 @media (max-width: 768px) {
-  .hero-buttons {
+
+  body {
+    overflow-x: hidden;
+  }
+
+  .navbar {
+    padding: 20px;
     flex-direction: column;
+    gap: 20px;
+  }
+
+  .logo img {
+    width: 220px;
+    height: auto;
+  }
+
+  nav {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px;
+  }
+
+  nav a {
+    font-size: 13px;
+  }
+
+  .btn {
+    padding: 8px 14px;
+  }
+
+  .hero {
+    min-height: 100vh;
+    padding: 120px 20px 40px;
+  }
+
+  .content {
+    max-width: 100%;
+    padding: 10px;
   }
 
   .content h1 {
-    font-size: 48px;
+    font-size: 42px;
+    line-height: 1.1;
+  }
+
+  .content p {
+    font-size: 14px;
+    line-height: 1.5;
+  }
+
+  .hero-buttons {
+    flex-direction: column;
+    width: 100%;
+    gap: 12px;
+    margin-top: 20px;
+  }
+
+  .hero-buttons button,
+  #heroPlansBtn {
+    width: 100%;
+    text-align: center;
+    padding: 14px;
+  }
+
+  .rating {
+    flex-wrap: wrap;
+    margin-top: 20px;
+  }
+
+  .rating span {
+    width: 100%;
+    margin-left: 0;
+    margin-top: 8px;
+    text-align: center;
+    font-size: 13px;
+  }
+
+  .generator {
+    margin-top: 25px;
+    padding: 18px;
+    border-radius: 15px;
+  }
+
+  .generator textarea {
+    height: 100px;
+    font-size: 14px;
+  }
+
+  .generator-footer {
+    flex-direction: column;
+    gap: 12px;
+    align-items: stretch;
+  }
+
+  .generate-btn {
+    width: 100%;
+  }
+
+  .examples {
+    grid-template-columns: 1fr;
+  }
+
+  .examples div {
+    font-size: 12px;
+  }
+
+  .login-box {
+    width: 92%;
+    padding: 22px;
+  }
+
+  .login-box h2 {
+    font-size: 24px;
+  }
+
+  .social-btn {
+    height: 48px;
+    font-size: 13px;
+  }
+
+  .login-box input {
+    height: 40px;
+  }
+
+  #finishLogin {
+    height: 42px;
+  }
+
+  .footer {
+    padding: 35px 20px;
   }
 
   .footer-container {
     flex-direction: column;
-    gap: 30px;
+    gap: 35px;
+    text-align: center;
+  }
+
+  .footer-left p {
+    font-size: 13px;
+  }
+
+  .email {
+    justify-content: center;
+  }
+
+  .footer-right {
+    align-items: center;
   }
 }
