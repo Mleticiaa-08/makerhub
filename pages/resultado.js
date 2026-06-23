@@ -22,11 +22,11 @@ const routes = {
   const saveBtn = document.querySelector(".btn.ghost");
   
   publishBtn?.addEventListener("click", () => {
-    alert("Projeto publicado 🚀");
+    alert("Projeto publicado ");
   });
   
   saveBtn?.addEventListener("click", () => {
-    alert("Projeto salvo 💾");
+    alert("Projeto salvo ");
   });
   
   const categoryButtons = document.querySelectorAll(".categories button");
